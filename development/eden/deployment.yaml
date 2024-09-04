@@ -29,7 +29,7 @@ spec:
         - name: eden-svc
           securityContext:
             {}
-          image: "eden-svc-img:latest"
+          image: "ewr.vultrcr.com/polytlk/eden:sha-5e3ec4f"
           ports:
             - containerPort: 7079
               protocol: TCP
@@ -38,13 +38,25 @@ spec:
               valueFrom:
                 secretKeyRef:
                   key: CELERY_BROKER_URL
-                  name: eden-svc-secret-env
+                  name: eden-svc-celery-broker-url
             - name: CELERY_RESULT_BACKEND
               valueFrom:
                 secretKeyRef:
                   key: CELERY_RESULT_BACKEND
-                  name: eden-svc-secret-env
+                  name: eden-svc-celery-result-backend
             - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
               value: http://opentelemetry-collector.opentelemetry.svc.cluster.local/v1/traces
             - name: ENVIRONMENT
-              value: local
+              value: development
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 7079
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /readiness
+              port: 7079
+            initialDelaySeconds: 5
+            periodSeconds: 10
