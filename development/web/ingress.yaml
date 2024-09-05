@@ -1,0 +1,28 @@
+---
+# Source: deployment/templates/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: web-client-svc
+  labels:
+    helm.sh/chart: deployment-0.1.0
+    app.kubernetes.io/name: web-client-svc
+    app.kubernetes.io/instance: web-deployment
+    app.kubernetes.io/managed-by: Helm
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - "dev.polytlk.io"
+      secretName: nginx-tls
+  rules:
+    - host: "dev.polytlk.io"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: web-client-svc
+                port:
+                  number: 80

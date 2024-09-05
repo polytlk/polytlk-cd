@@ -1,0 +1,20 @@
+---
+# Source: deployment/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-client-svc
+  labels:
+    helm.sh/chart: deployment-0.1.0
+    app.kubernetes.io/name: web-client-svc
+    app.kubernetes.io/instance: web-deployment
+    app.kubernetes.io/managed-by: Helm
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  selector:
+    app.kubernetes.io/name: web-client-svc
+    app.kubernetes.io/instance: web-deployment
