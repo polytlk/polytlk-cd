@@ -14,7 +14,7 @@ spec:
   tls:
     - hosts:
         - "dev.polytlk.io"
-      secretName: nginx-tls
+      secretName: web-client-svc-tls-secret
   rules:
     - host: "dev.polytlk.io"
       http:
