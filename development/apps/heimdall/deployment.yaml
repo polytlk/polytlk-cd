@@ -56,8 +56,8 @@ spec:
           livenessProbe:
             httpGet:
               httpHeaders:
-                - name: Host
-                  value: heimdall-svc.heimdall.svc
+              - name: Host
+                value: heimdall-svc.heimdall.svc
               path: /healthz/
               port: 8000
             initialDelaySeconds: 5
@@ -65,8 +65,8 @@ spec:
           readinessProbe:
             httpGet:
               httpHeaders:
-                - name: Host
-                  value: heimdall-svc.heimdall.svc
+              - name: Host
+                value: heimdall-svc.heimdall.svc
               path: /readiness/
               port: 8000
             initialDelaySeconds: 5

@@ -4,3 +4,5 @@ ignore-from-file: .gitignore
 
 rules:
   line-length: disable
+  indentation:
+    indent-sequences: whatever
