@@ -40,9 +40,9 @@ spec:
               value: development
           volumeMounts:
             - mountPath: /etc/nginx/ssl
-              name: nginx-tls
+              name: web-client-svc-tls-secret
               readOnly: true
       volumes:
-        - name: nginx-tls
+        - name: web-client-svc-tls-secret
           secret:
-            secretName: nginx-tls
+            secretName: web-client-svc-tls-secret
