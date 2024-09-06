@@ -1,4 +1,3 @@
----
 config:
   exporters:
     logging:
@@ -42,7 +41,7 @@ extraEnvs:
   valueFrom:
     secretKeyRef:
       key: HONEYCOMB_API_KEY
-      name: opentelemetry-colector-honeycomb-api-key
+      name: otel-collector-secrets-honeycomb-api-key
 mode: deployment
 ports:
   jaeger-compact:

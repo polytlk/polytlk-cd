@@ -1,4 +1,3 @@
----
 controller:
   watchNamespace: nginx,web,tyk
 rbac:
