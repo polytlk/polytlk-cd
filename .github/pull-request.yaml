@@ -5,7 +5,7 @@ on:  # yamllint disable-line rule:truthy
     branches:
       - main
 jobs:
-  lint:
+  yamllint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -16,7 +16,7 @@ jobs:
 
       - name: Lint YAML files
         run: yamllint .
-  conform:
+  kubeconform:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
