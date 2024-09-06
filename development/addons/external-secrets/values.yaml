@@ -1,0 +1,5 @@
+crds:
+  createClusterExternalSecret: false
+  createClusterSecretStore: false
+processClusterExternalSecret: false
+processClusterStore: false
