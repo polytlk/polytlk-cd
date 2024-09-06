@@ -1,0 +1,18 @@
+---
+vulnerabilities: []
+misconfigurations:
+  - id: AVD-KSV-0001
+  - id: AVD-KSV-0003
+  - id: AVD-KSV-0011
+  - id: AVD-KSV-0012
+  - id: AVD-KSV-0014
+  - id: AVD-KSV-0015
+  - id: AVD-KSV-0016
+  - id: AVD-KSV-0018
+  - id: AVD-KSV-0020
+  - id: AVD-KSV-0021
+  - id: AVD-KSV-0030
+  - id: AVD-KSV-0104
+  - id: AVD-KSV-0106
+  - id: AVD-KSV-0117
+secrets: []
