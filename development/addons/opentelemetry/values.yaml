@@ -1,0 +1,57 @@
+---
+config:
+  exporters:
+    logging:
+      verbosity: normal
+    otlp/honey:
+      endpoint: api.honeycomb.io:443
+      headers:
+        x-honeycomb-team: $HONEYCOMB_API_KEY
+  processors:
+    batch:
+      send_batch_max_size: 1000
+      send_batch_size: 100
+      timeout: 10s
+    filter/ottl:
+      error_mode: ignore
+      traces:
+        span:
+        - attributes["http.target"] == "/healthz"
+        - attributes["http.target"] == "/readiness"
+  receivers:
+    otlp:
+      protocols:
+        http:
+          cors:
+            allowed_origins:
+            - '*'
+  service:
+    pipelines:
+      metrics: null
+      traces:
+        exporters:
+        - logging
+        - otlp/honey
+        processors:
+        - batch
+        - filter/ottl
+        receivers:
+        - otlp
+extraEnvs:
+- name: HONEYCOMB_API_KEY
+  valueFrom:
+    secretKeyRef:
+      key: HONEYCOMB_API_KEY
+      name: opentelemetry-colector-honeycomb-api-key
+mode: deployment
+ports:
+  jaeger-compact:
+    enabled: false
+  jaeger-grpc:
+    enabled: false
+  jaeger-thrift:
+    enabled: false
+  otlp-http:
+    servicePort: 80
+  zipkin:
+    enabled: false

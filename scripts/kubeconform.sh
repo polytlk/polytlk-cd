@@ -16,7 +16,7 @@ run_kubeconform() {
     done
     
     # Run kubeconform command
-    kubeconform $COMMON_PARAMS -schema-location "$schema_location" $ignore_params ./development
+    kubeconform $COMMON_PARAMS -schema-location "$schema_location" $ignore_params ./development/apps
 }
 
 # Call run_kubeconform with different schemas and ignore patterns
