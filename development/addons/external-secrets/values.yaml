@@ -1,3 +1,4 @@
+---
 crds:
   createClusterExternalSecret: false
   createClusterSecretStore: false
