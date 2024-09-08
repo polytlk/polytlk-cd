@@ -29,7 +29,7 @@ spec:
         - name: heimdall-svc
           securityContext:
             {}
-          image: "ewr.vultrcr.com/polytlk/heimdall:sha-be1405b"
+          image: "ewr.vultrcr.com/polytlk/heimdall:sha-0c8bb50"
           ports:
             - containerPort: 8000
               protocol: TCP
@@ -39,12 +39,17 @@ spec:
                 secretKeyRef:
                   key: DJANGO_SECRET
                   name: heimdall-svc-django-secret
+            - name: TYK_MANAGEMENT_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: TYK_MANAGEMENT_API_KEY
+                  name: heimdall-svc-tyk-management-api-key
             - name: ALLOWED_HOSTS
               value: heimdall-svc.heimdall.svc,localhost
             - name: SERVICE_NAME
               value: heimdall-service
             - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
-              value: http://opentelemetry-collector.opentelemetry.svc.cluster.local/v1/traces
+              value: http://opentelemetry-collector.otel-collector.svc.cluster.local/v1/traces
             - name: GATEWAY_HOST
               value: gateway-svc-tyk.tyk.svc.cluster.local
             - name: EDEN_API_ID
@@ -53,6 +58,10 @@ spec:
               value: development
             - name: GATEWAY_PORT
               value: "80"
+            - name: CLIENT_ID_WEB
+              value: 1048294563394-dk9or7n1rbindlioiq9esda80erktjkh.apps.googleusercontent.com
+            - name: CLIENT_ID_IOS
+              value: 540933041586-83lavib8c5hu16r0v6g63200jdruif77.apps.googleusercontent.com
           livenessProbe:
             httpGet:
               httpHeaders:

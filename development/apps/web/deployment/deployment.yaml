@@ -29,11 +29,13 @@ spec:
         - name: web-client-svc
           securityContext:
             {}
-          image: "ewr.vultrcr.com/polytlk/web-client:sha-ec96a6c"
+          image: "ewr.vultrcr.com/polytlk/web-client:sha-0c8bb50"
           ports:
             - containerPort: 80
               protocol: TCP
           env:
+            - name: CLIENT_ID_WEB
+              values: 1048294563394-dk9or7n1rbindlioiq9esda80erktjkh.apps.googleusercontent.com
             - name: BASE_URL
               value: https://dev.api.polytlk.io
             - name: TARGET_ENV
