@@ -34,12 +34,12 @@ spec:
             - containerPort: 80
               protocol: TCP
           env:
-            - name: CLIENT_ID_WEB
-              values: 1048294563394-dk9or7n1rbindlioiq9esda80erktjkh.apps.googleusercontent.com
             - name: BASE_URL
               value: https://dev.api.polytlk.io
             - name: TARGET_ENV
               value: development
+            - name: CLIENT_ID_WEB
+              values: 1048294563394-dk9or7n1rbindlioiq9esda80erktjkh.apps.googleusercontent.com
           volumeMounts:
             - mountPath: /etc/nginx/ssl
               name: web-client-svc-tls-secret
