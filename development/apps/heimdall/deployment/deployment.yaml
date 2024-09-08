@@ -61,7 +61,7 @@ spec:
             - name: CLIENT_ID_WEB
               value: 1048294563394-dk9or7n1rbindlioiq9esda80erktjkh.apps.googleusercontent.com
             - name: CLIENT_ID_IOS
-              value: 540933041586-83lavib8c5hu16r0v6g63200jdruif77.apps.googleusercontent.com
+              value: 1048294563394-5h953jk4mpo9l4602jf4llpnplk0kavf.apps.googleusercontent.com
           livenessProbe:
             httpGet:
               httpHeaders:
