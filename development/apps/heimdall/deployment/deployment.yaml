@@ -48,8 +48,6 @@ spec:
               value: heimdall-svc.heimdall.svc,localhost
             - name: SERVICE_NAME
               value: heimdall-service
-            - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
-              value: http://otel-collector-opentelemetry-collector.otel-collector.svc.cluster.local/v1/traces
             - name: GATEWAY_HOST
               value: gateway-svc-tyk.tyk.svc.cluster.local
             - name: EDEN_API_ID
@@ -62,6 +60,8 @@ spec:
               value: 1048294563394-dk9or7n1rbindlioiq9esda80erktjkh.apps.googleusercontent.com
             - name: CLIENT_ID_IOS
               value: 1048294563394-5h953jk4mpo9l4602jf4llpnplk0kavf.apps.googleusercontent.com
+            - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
+              value: http://otel-collector-opentelemetry-collector.otel-collector.svc.cluster.local/v1/traces
           livenessProbe:
             httpGet:
               httpHeaders:
