@@ -24,6 +24,7 @@ spec:
       - "OPTIONS"
     allowed_origins:
       - "https://dev.polytlk.io"
+      - "capacitor://localhost"
     debug: true
     max_age: 24
   custom_middleware:
